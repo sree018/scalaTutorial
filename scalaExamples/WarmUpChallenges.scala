@@ -9,6 +9,21 @@ object WarmUpChallenges{
 
     repeatedString("abcac", 60)
   }
+  def countHoles(num: Int) :Int={
+    val number = num.toString().map(_.asDigit)
+    var holes = 0;
+    val data1 = for (i <- number) {
+     if (i==8){
+       holes += 2
+     }else if (i==1|| i==2||  i==3||i==5||i==7){
+       holes += 0
+     }else if (i==0||i==4||i==6||i==9){
+       holes += 1
+     }
+    }
+    return holes
+
+  }
   def repeatedString(s: String, n: Long) {
        val rem = n % s.length
      println( s.count(_ == 'a') * (n / s.length)+ s.take(rem.toInt).count(_ == 'a'))
